@@ -238,3 +238,194 @@ python Decoupled_Species_Processor.py --input-dir output --output-dir analysis_o
 
 This script serves as the final step in the Thermochimica workflow, providing comprehensive analysis of the decoupled phase data generated in previous workflow steps.
 
+## Input_Generator_and_Execution_Multi.py
+
+This script generates Thermochimica input files from surrogate vector JSON data and can execute Thermochimica calculations in parallel. It serves as an interface between processed salt composition data and the Thermochimica thermodynamic analysis tool.
+
+**Purpose:** Generates and optionally runs Thermochimica input files for each time step in a surrogate vector JSON file.
+
+**Inputs:**
+- JSON file containing surrogate vector data with element compositions at different time steps
+- Optional parameters for temperature, pressure, output directory, and scale factor
+- Paths to Thermochimica data file and binary (optional)
+
+**Outputs:**
+- Thermochimica input (.ti) files for each time step
+- JSON output files containing thermodynamic calculation results (when run mode is enabled)
+- Log files for each calculation
+
+**Key Features:**
+- Multiprocessing support for parallel execution
+- Customizable directory structure for outputs
+- Element validation against known periodic table elements
+- Detailed error handling and logging
+
+## Salt_Nuclide_Decoupler.py
+
+This script processes phase-specific salt data and decouples it into nuclide-level composition information, creating detailed analyses of the nuclide distribution across different phases of the salt.
+
+**Purpose:** Converts element-level phase data into nuclide-level distribution data for comprehensive analysis of salt composition.
+
+**Inputs:**
+- `output/Decoupled_Salt.json`: Contains phase-specific element data for different time steps
+- `Element_Vector.json`: Contains nuclide contribution percentages for each element
+
+**Outputs:**
+- `Salt_Nuclides.json`: Detailed breakdown of nuclide distributions in different salt phases
+
+**Key Features:**
+- High-precision decimal calculations to maintain numerical accuracy
+- Separate handling of cations and anions in each salt phase
+- Special handling for dimers (contributes twice the normal amount)
+- Comprehensive error checking for mismatched time steps
+I'll write an introduction for the MSFL_Phase_Report.py file based on its content and intended function:
+
+## MSFL_Phase_Report.py
+
+This Python script implements the `MSFLPhaseAnalysisReportGenerator` class which analyzes and generates reports specifically for molten salt fuel (MSFL) phases from Thermochimica output data. It works with condensed report data produced by the `CondensedReportGenerator` class.
+
+### Functionality:
+- Extracts and analyzes MSFL phase presence, mole amounts, and compositions over time
+- Generates various CSV reports showing phase presence and mole amounts
+- Creates visualization plots for MSFL phase data including:
+  - Mole amounts vs. time plots
+  - Species composition plots (regular and log-scale)
+  - Cation composition plots (regular and log-scale)
+
+### Inputs:
+- `condensed_report`: An OrderedDict containing the condensed output data from Thermochimica simulations
+- `output_directory`: Directory where output files (reports and plots) will be saved
+
+### Outputs:
+- CSV files:
+  - `MSFL_Phase_Presence_Report.csv`: Shows which MSFL phases are present at each timestep
+  - `MSFL_Phase_Mole_Amounts_Report.csv`: Details the mole amounts of each MSFL phase at each timestep
+  - `MSFL_Phase_Composition_Report.csv`: Contains detailed species composition data for each phase
+  - `MSFL_Cation_Composition_Report.csv`: Lists cation compositions for each MSFL phase
+
+- Visualization plots:
+  - `MSFL_Mole_Amounts.png`: Plot showing mole amounts of all MSFL phases over time
+  - Multiple composition plots showing species distribution within phases
+  - Cation composition plots (both regular and logarithmic scale)
+
+### Usage:
+The script can be run as a standalone module with command-line arguments or imported and used as part of a larger workflow. When run directly, it requires specifying an input directory containing Thermochimica data and optionally an output directory for saving results.
+
+```bash
+python MSFL_Phase_Report.py path/to/input_dir --output-dir path/to/msfl_output
+```
+
+This script is an important component in the Thermochimica workflow, specifically focused on analyzing the molten salt phases that are critical for nuclear fuel salt assessments.
+
+## nuclide_vector_processor_v2.py
+This Python script processes nuclide data from JSON files to calculate element atom densities and mole percentages. It converts isotope-specific nuclide data into elemental compositions.
+
+**Inputs:**
+- JSON file containing nuclide density data across multiple time steps
+- Optional element filter list
+- Plot type selection ('stackplot', 'semilog', 'combined', or 'all')
+
+**Outputs:**
+- Processed JSON file with elemental atom densities and mole percentages
+- Optional isotopic contribution percentages
+- Visualization plots showing elemental abundance over time
+
+The script supports various command-line options for filtering elements, selecting plot types, and controlling output verbosity. It can generate stacked plots for major elements and semi-log plots for trace elements with very low concentrations.
+
+## Surogate_Processing.py
+This Python module maps element data to surrogate elements based on a provided mapping configuration. It's designed to condense complex elemental compositions into a smaller set of surrogate elements for simplified thermochemical analysis.
+
+**Inputs:**
+- Surrogate configuration file (`surrogates_and_candidates.json`) defining which elements map to which surrogates
+- Processed element data file (output from `nuclide_vector_processor_v2.py`)
+
+**Outputs:**
+- JSON file containing:
+  - Surrogate vector data with atom densities and mole percentages
+  - Surrogate percentages showing each element's contribution to its surrogate
+
+The `SurrogateProcessor` class handles the mapping of elements to surrogates and calculates the corresponding surrogate percentages. This processing step is critical for reducing computational complexity in downstream thermochemical analysis.
+
+
+## Phase_Analysis_and_Report_Gen2.py
+
+This Python script generates detailed reports and visualizations for phase presence, mole amounts, and composition data from Thermochimica output. The script works alongside the CondensedReportGenerator to analyze condensed data reports.
+
+### Inputs:
+- A condensed report from CondensedReportGenerator containing Thermochimica phase data
+- Output directory path for saving reports and plots
+
+### Outputs:
+Multiple report files and visualization plots:
+- **Phase_Presence_Report.csv**: Documents which phases have moles > 0 at each timestep
+- **Phase_Mole_Amounts_Report.csv**: Contains mole quantities for each phase at each timestep
+- **Phase_Composition_Report.csv**: Detailed breakdown of species composition within each phase
+- **Non_Salt_Mole_Amounts.png**: Plot showing how non-salt phase quantities change over time
+- Multiple composition plots showing major components for each phase with direct labeling
+
+### Key Features:
+- Separates solution phases from pure condensed phases in reports
+- Filters out salt phases (MSFL) when focusing on non-salt analysis
+- Provides significance threshold filtering for composition plots
+- Uses direct labeling on plots for improved readability
+- Comprehensive logging for tracking analysis process
+
+The script can be run as a standalone module with input directory specification or integrated into the larger Thermochimica workflow.
+
+## RedoxAnalyzer4.py
+
+### Description
+RedoxAnalyzer4.py is a Python script that serves as Component 3 in the Thermochimica workflow. It analyzes redox potentials within nuclear fuel salt systems by calculating and reporting UF3/UF4 and Cr2+/Cr3+ ratios from processed thermochimica data.
+
+### Inputs
+- **condensed_thermochimica_report.json**: A JSON file containing condensed thermochimica calculation results with detailed information about solution phases, specifically focusing on the MSFL (Molten Salt Fuel Loop) phase and its cations.
+- **Command line arguments**:
+  - `input_file`: Path to the condensed thermochimica report JSON file (required)
+  - `--output-dir`: Directory to save output files (default: 'output')
+  - `--plot-gibbs`: Optional flag to generate plots of integral Gibbs energy
+
+### Outputs
+The script generates several outputs in the specified output directory:
+1. **CSV files**:
+   - `uf3_uf4_ratios.csv`: Contains timestep-by-timestep UF3/UF4 ratio data
+   - `cr2_cr3_ratios.csv`: Contains timestep-by-timestep Cr2+/Cr3+ ratio data
+   - `gibbs_energy.csv`: Contains integral Gibbs energy values (if --plot-gibbs is specified)
+
+2. **Plot images**:
+   - `uf3_uf4_ratio_plot.png`: Semi-log plot of UF3/UF4 ratios over time
+   - `cr2_cr3_ratio_plot.png`: Semi-log plot of Cr2+/Cr3+ ratios over time
+   - `combined_redox_ratios_plot.png`: Combined plot of both ratio types
+   - `gibbs_energy_semilog_plot.png`: Semi-log plot of Gibbs energy (if --plot-gibbs is specified)
+   - `gibbs_energy_linear_plot.png`: Linear plot of Gibbs energy (if --plot-gibbs is specified)
+
+3. **Summary files**:
+   - `uf3_uf4_summary.json`: Statistical summary of UF3/UF4 ratios
+   - `cr2_cr3_summary.json`: Statistical summary of Cr2+/Cr3+ ratios
+
+### Key Features
+- Calculates UF3/UF4 and Cr2+/Cr3+ redox ratios from MSFL cation data
+- Handles problematic timesteps where ratios cannot be calculated
+- Generates high-quality visualizations of redox trends
+- Provides statistical analysis of redox behavior
+- Optional analysis of Gibbs energy for thermodynamic assessment
+- Comprehensive logging of analysis process and results
+
+### Usage Example
+```bash
+python RedoxAnalyzer4.py path/to/condensed_thermochimica_report.json --output-dir results --plot-gibbs
+```
+
+This component is crucial for understanding the redox chemistry within molten salt fuel systems, which directly impacts corrosion behavior, fuel stability, and overall reactor safety.
+
+## Salt_Nuclide_Decoupler.py
+A Python script that processes phase-specific salt data by combining information from decoupled salt phases with nuclide vector data. The script calculates nuclide-specific mole percentages for both cations and anions in each salt phase across all timesteps.
+
+**Inputs:**
+- `output/Decoupled_Salt.json`: Contains salt phase data with cation and anion mole percentages
+- `Element_Vector.json`: Contains processed fuel data with surrogate percentages by element
+
+**Outputs:**
+- `Salt_Nuclides.json`: A JSON file containing detailed nuclide-specific mole percentages for cations and anions in each salt phase at each timestep
+
+The script uses high-precision decimal calculations to accurately distribute element compositions to their constituent nuclides while handling special cases like dimers (which contribute twice the amount). It preserves full numerical precision throughout the calculations and in the output file.
+
