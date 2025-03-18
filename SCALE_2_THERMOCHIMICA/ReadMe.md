@@ -1,4 +1,4 @@
-# Thermochimica Workflow Automation
+# SCALE 2 Thermochimica Workflow
 
 This repository contains a workflow automation script for the Thermochimica analysis pipeline. The script automates the execution of all modules in the correct sequence while handling dependencies.
 
