@@ -146,6 +146,11 @@ def main():
         {
             "command": "python Salt_Nuclide_Decoupler.py",
             "description": "Decouple salt nuclides"
+        },
+
+        {
+            "command": "python Decoupled_Species_Processor.py",
+            "description": "Decouple salt nuclides"
         }
     ]
     
