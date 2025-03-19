@@ -1,0 +1,13 @@
+{
+  "statistics": {
+    "min": 1.5795208582014493e-18,
+    "max": 2.596087229805507e-18,
+    "mean": 1.73402381134234e-18,
+    "median": 1.6699981840179718e-18,
+    "geometric_mean": 1.7257808050732884e-18,
+    "std_dev": 1.808227196678128e-19,
+    "count": 184
+  },
+  "normal_timesteps": 184,
+  "problematic_timesteps": 6
+}
