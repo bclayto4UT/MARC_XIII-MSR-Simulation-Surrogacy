@@ -49,7 +49,45 @@ A particular thank you is in order for co-authors:
 The Author also found the following repositories helpful in the creation of these tools:
 - [periodic_trends](https://github.com/Andrew-S-Rosen/periodic_trends)
 
+
 ### Citations
 
 We hope to publish a portion of this work in a journal in the near future. Once we have we will provide the approiate citation. Until then, please contact Braden directly if you are interested in using any of this work.
 
+---------
+
+# Introducing the Molten Salt Reactor Digital Twin Initiative
+
+## About
+
+### Next Generation Energy
+Nuclear energy is a strong candidate to supplement fossil fuels, with molten salt reactors (MSRs) offering key advantages in safety, sustainability, energy security, and waste management. MSRs operate at atmospheric pressure with liquid fuel, making them inherently safer than traditional high-pressure, solid-fuel reactors.
+
+The Nuclear Regulatory Commission (NRC) requires vast amounts of safety data, traditionally taking decades to gather. Digital modeling tools can accelerate safe design progress and continuous reactor innovation.
+
+## Texas Solution
+Texas is driving MSR development through collaborative efforts between industry and academia. Abilene Christian University (ACU) is constructing a research reactor, with plans for more across the state. The Digital Molten Salt Reactor Initiative will:
+
+- Create a digital twin reactor to improve digital modeling accuracy.
+- Deploy sensors and simulations to validate predictive models.
+- Model experimental salt corrosion and chemistry impacts.
+- Build a digital grid model to show MSRs' contribution to energy reliability.
+
+This will promote innovation and safety, following the example of U.S. leadership in technology and aviation.
+
+## Why UT Austin?
+UT Austin is well-equipped to lead this initiative, leveraging:
+
+- **Texas Advanced Computing Center**: A global leader in high-performance computing.
+- **Oden Institute**: Expertise in computational science and engineering.
+- **Energy Institute**: Research on the energy economy.
+- **NETL Reactor**: The newest U.S. research reactor.
+
+### Mission
+Demonstrate how digital twins (DTs) can enable regulatory approval and innovation in nuclear and molten salt systems.
+
+### Vision
+Position UT Austin as the top university for digital twin R&D in advanced reactor technologies.
+
+### Colabortion
+We are always looking to colaborate, if you are interested in exploring colaboration feel free to contact Dr. Kevin Clarno clarno@utexas.edu or Dr. Derek Haas derekhaas@utexas.edu
