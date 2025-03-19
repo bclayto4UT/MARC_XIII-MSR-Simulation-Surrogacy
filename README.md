@@ -91,3 +91,22 @@ Position UT Austin as the top university for digital twin R&D in advanced reacto
 
 ### Colabortion
 We are always looking to colaborate, if you are interested in exploring colaboration feel free to contact Dr. Kevin Clarno clarno@utexas.edu or Dr. Derek Haas derekhaas@utexas.edu
+
+---------
+# A Deeper Dive Into The Poster
+
+When excited about a topic, creating a poster can be a grueling effort in acedemic minimalisim. In other words, there is never enough space. The folloowing section include thoughts and explinations that simply did not fit on the board.
+
+## Introduction
+
+## The EIRINE Cycle
+- A Breif Introduction to the EIRENE CYCLE, including a discussion/acknowledgment of the use of percribed seperations methods.
+
+## More on Mapping
+- Insert Mapping Explination here, Include Graphic with MSTDB Data Availability, explain how each addition to the database is increasingly complex
+
+## S'more Findings 
+- Explain initial findings on redox control and UF3 deposition
+
+## Hopes for the Future
+- Go into a little more depth about plans and next steps, discuss how this tool will adi multiphysics assesments of the core. 
