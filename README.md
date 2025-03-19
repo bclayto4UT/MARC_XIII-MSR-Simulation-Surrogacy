@@ -100,7 +100,10 @@ When excited about a topic, creating a poster can be a grueling effort in acedem
 ## Introduction
 
 ## The EIRINE Cycle
-- A Breif Introduction to the EIRENE CYCLE, including a discussion/acknowledgment of the use of percribed seperations methods.
+
+The EIRENE and ThEIRENE reactor models serve as versatile, open-source platforms for exploring advanced molten salt reactor fuel cycles, with a focus on education and research. EIRENE, inspired by the IMSR-400 design, utilizes high-assay low-enriched uranium (HALEU) fuel in a liquid salt medium and is designed to demonstrate innovative fuel cycle strategies like the Sourdough refueling approach, enabling continuous salt rejuvenation and extended reactor operation. Building on this foundation, the ThEIRENE model introduces a fertile thorium and fissile HALEU fuel mixture, offering a pathway to explore sustainable, closed fuel cycles with significant potential for breeding new fissile material and reducing long-term radiotoxic waste. Together, these models provide a comprehensive framework for assessing neutronic behavior, temperature feedback, depletion characteristics, and advanced fuel cycle performance in next-generation molten salt reactors.
+
+These Fuel Cycles employ somewhat arbitrary seperation schemes, periodicly/consistently pulling noble metals and Gases from the salt phase. They do not include any consideration for Redox Control. 
 
 ## More on Mapping
 Though the MSTDB has collected a large amount of Data, and has made sigificant improvments in just the last 2 years, there are still many elements not represented in the database:
