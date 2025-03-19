@@ -429,3 +429,39 @@ A Python script that processes phase-specific salt data by combining information
 
 The script uses high-precision decimal calculations to accurately distribute element compositions to their constituent nuclides while handling special cases like dimers (which contribute twice the amount). It preserves full numerical precision throughout the calculations and in the output file.
 
+
+# Out-of-Workflow Visualization Tools
+
+## Heat_Map_Plotter.py
+A standalone visualization tool for creating periodic table heatmaps of elemental composition data. This tool is separate from the automated workflow and can be used independently to generate high-quality visualizations.
+
+**Features:**
+- Creates publication-quality periodic table heatmaps showing elemental mole percentages
+- Supports log-scale and linear-scale visualization options
+- Offers multiple color schemes: viridis, plasma, inferno, magma, cividis, turbo
+- Configurable output resolution (DPI) for various presentation needs
+- Automatically positions lanthanides and actinides correctly in the periodic table
+- Displays element symbols, atomic numbers, and mole percentages directly on the periodic table cells
+
+**Usage:**
+```
+python Heat_Map_Plotter.py
+```
+
+By default, the script analyzes Element_Vector.json at time step 300. You can customize parameters by modifying the script or importing it as a module:
+
+```python
+from Heat_Map_Plotter import plot_abundance_matplotlib
+
+plot_abundance_matplotlib(
+    'Element_Vector.json',  # Input JSON file with elemental data
+    time_step=100,          # Time step to visualize
+    output_filename='my_heatmap.png',  # Output image filename
+    cmap='plasma',          # Color scheme
+    log_scale=True,         # Use logarithmic scale for values
+    figsize=(16, 10),       # Figure dimensions
+    dpi=300                 # Output resolution
+)
+```
+
+This tool is ideal for visualizing trends in elemental composition across different time steps in your thermochemical analysis.
