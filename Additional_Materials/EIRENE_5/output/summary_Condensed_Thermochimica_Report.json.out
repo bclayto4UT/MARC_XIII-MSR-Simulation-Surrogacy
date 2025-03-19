@@ -1,0 +1,39 @@
+# Condensed Report Summary
+
+Total timesteps: 114
+First timestep: 1
+Last timestep: 164
+
+Solution phases (19):
+- gas_ideal
+- MSFL (SALT PHASE)
+- MSFL#3 (SALT PHASE)
+- FM3M
+- FM3M#5
+- P3c1
+- P3c1#7
+- C2_c
+- C2_c#9
+- bccsoln
+- bccsoln#11
+- fccsoln
+- fccsoln#13
+- cphsoln
+- cphsoln#15
+- tetrasoln
+- tetrasoln#17
+- liquidsoln
+- liquidsoln#19
+
+Pure condensed phases (133):
+- Li_L1(liq)
+- Be_L1(liq)
+- LiF_L1(liq)
+- BeF2_L1(liq)
+- Rb_L1(liq)
+- RbF_L1(liq)
+- Sr_L1(liq)
+- SrF2_L1(liq)
+- Zr_L1(liq)
+- ZrF2_L1(liq)
+- ... and 123 more phases
