@@ -26,9 +26,10 @@ There is a lot here, we want to avoid you getting lost.
 - Poster Materials, poster graphics and some great graphics we couldnt squeze into the posters are in the primary directory, these include:
    - `Main_Poster.pdf`
    - `Bonus_Poster.pdf`
-   - .
-   - .
-   - .
+   - `Cr2_Cr3_Ratio` &  `UF3_UF4_Ra` - A plot of Cr and U Valence State Ratio in the Bulk Salt against time.
+   - `Major_Decoupled_xxx_Composition` - These plots show major species in each phase, after simulation surrogates have been decoupled, and how they evolve with time.
+   - `Minor_Decoupled_xxx_Composition` - These plots show all minor species after surrogate decoupling, and how the phase concentrations evolve with time.
+   - `Non_Salt_Mole_Amounts` - A plot demonstrating the molar accumulation of each non-salt phase throughout the opperation of the ThEIRENE Fuel Cycle.
 - Code for the Surrogate Mapping can be found in `SURROGATE_MAPPING_GEN_I`, incuding detailed explanations of each file present.
 - The Workhorse code can be found in `SCALE_2_THERMOCHIMICA`, which also has an explination of the code, its use and dependencies. It is worthwhile to note that this code is writen to work on the Authors Laptop and has not been "Cleaned Up" for general use. If you would like to use it, be concious of paths to your Thermochimica Instalation. 
 - `Additional_Materials` is for anyone who loves looking at graphs. It contains all the outputs of runs for a variety of fuel cycles.
