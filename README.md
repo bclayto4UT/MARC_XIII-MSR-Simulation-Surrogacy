@@ -332,7 +332,28 @@ Included in this appendix are the half reactions and code used to perform the ma
 [electrochemical series.pdf](https://github.com/user-attachments/files/18771192/electrochemical.series.pdf)
 
 ## S'more Findings 
-- Explain initial findings on redox control and UF3 deposition
+### Redox Potentials and Fuel burnup
+![UF3/UF4 Ratio](https://github.com/bclayto4UT/MARC_XIII-MSR-Simulation-Surrogacy/blob/main/UF3_UF4_Ratio.png)
 
+Litrature suggests that the Ratio of UF3 to UF4 in a fuel salt can be directly related to Florine and Redox potentials in the salt. Preliminary research determined a target ratio of ~0.0001 and 0.01 to avoid either the production of free F or the perciptation of a solid UF3 phase. For the ThEIRENE cycle, no redox control was considered. Because of this we see an imediate drop from the stociometric ideal to extremly small or even non existant amounts of UF3. This is caused by a charge imbalance between U and its fission products. In the case of the ThEIRENE cycle, we should see the Redox ratio (UF3/UF4) to rise when new fisile material is produced, and fall steadily as Burnup effects overcome this breeding rate. That is the behavior observed in the simulation, as shown above. We can also see simmilar behavior in the Cr Ratio as shown bellow.
+
+![Cr Ratio](https://github.com/bclayto4UT/MARC_XIII-MSR-Simulation-Surrogacy/blob/main/Cr2_Cr3_Ratio.png)
+
+The parity between these ratios coroberates the idea that they both can be used as a redox indicator for our system.
+
+### Evolution of Gas Species 
+Because of the chemical drift caused by the aforemention charge imbalance between U and its fission products, we will begin to have free F Anions in our salt. In the poster, we report the formation of unwanted gas species. After printing the poster, we realized that this suprising result is a quirk of the simulation. Because no solid phase structual material is included in the simulation, the corrosion that would proceed the formation of volitile F species cannot occur. Thus the observation of these species should rather be taken as another indicatior of F potential and the propensity for corrosion in the salt. Future work will explore how to better capture corrosion effects, making an effort to consider kinetic limitations.
+![Major Gas Species](https://github.com/bclayto4UT/MARC_XIII-MSR-Simulation-Surrogacy/blob/main/Major_Decoupled_Gas_Species.png)
+
+### Clear Shortcomings of MSTDB-tc
+This initial demonstration of SCALE_2_Thermochimica, using the first generation surrogate mapping described previously, has heighlighted key shortcomings in the data available to us in current versions of the MSTDB-tc. These include:
+
+- H (Tritium) - The irradiation of FLiBe results in the production of Tritium, undestanding the phase behavior of this will be important in determining how it is transported throughout the system.
+- O  - Oxygen has been shown to be a major contributer to salt corrosivity, with a strong impact on its redox potential. As seen in the `Bonus_Posters` There is a significant amount of Oxygen generated through transmutaion of other species, and no suitable simulation surrogate is available.
+
+- Te - As Seen Below, Te is a significant component in the paired Mo surrogate, as such it should recive more attention, especialy as it is a Metaloid and cannot be expected to behave in the same way as Mo.
+
+![BCC_Solid](https://github.com/bclayto4UT/MARC_XIII-MSR-Simulation-Surrogacy/blob/main/Major_Decoupled_BCC_Solids_Composition.png)
+ 
 ## Hopes for the Future
 - Go into a little more depth about plans and next steps, discuss how this tool will adi multiphysics assesments of the core. 
